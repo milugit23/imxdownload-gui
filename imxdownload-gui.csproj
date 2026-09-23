@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    imxdownload-gui —— i.MX6ULL 裸机镜像烧写工具（图形界面版，WinForms）
+
+    移植自正点原子《阿尔法 Linux 开发板》配套的 Ubuntu 版 imxdownload
+    （imxdownload.c / imxdownload.h，Edit by zuozhongkai，2019/6/10，V1.1）
+
+    构建：  dotnet build -c Release
+    产物：  bin\Release\net10.0-windows\imxdownload-gui.exe
+
+    运行：  直接双击即可 —— 程序启动时会自己用 runas 请求管理员权限，
+            不需要额外挂 manifest。（提权逻辑见 Main / TryRestartElevated）
+
+    命令行参数：
+      无                目标磁盘列表锁定为「只显示可移动磁盘」，界面无开关可取消
+      allow-fixed       （前面带两个减号）放开过滤，固定磁盘也列出来，仍会再弹一次二次确认
+  -->
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+
+    <AssemblyName>imxdownload-gui</AssemblyName>
+    <RootNamespace>ImxDownload.Gui</RootNamespace>
+
+    <!-- 见命令行版 csproj 里的同类注释 -->
+    <CodePage>65001</CodePage>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <LangVersion>latest</LangVersion>
+
+    <UseWindowsFormsDesigner>false</UseWindowsFormsDesigner>
+    <InvariantGlobalization>false</InvariantGlobalization>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AssemblyTitle>i.MX6ULL 镜像烧写工具（图形界面版）</AssemblyTitle>
+    <Product>imxdownload (Windows port, GUI)</Product>
+    <Description>正点原子 imxdownload 的 Windows 移植版（图形界面）</Description>
+    <Version>1.1.0</Version>
+    <FileVersion>1.1.0.0</FileVersion>
+    <NeutralLanguage>zh-Hans</NeutralLanguage>
+  </PropertyGroup>
+
+</Project>
